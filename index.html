@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <script>
+        function POST(){
+            let value1;
+            let  con;
+            value1 = document.getElementById("roll_no").value;
+            con= document.getElementById("content").value;
+        
+        
+            fetch('https://tpcconfessions.onrender.com/api/postConfession', {
+            method: 'POST',
+            body: JSON.stringify({
+                roll_no : value1,
+                confession : 'the cofession postedbar',
+            }),
+            headers: {
+                'Content-type': 'application/json; charset=UTF-8',
+            },
+            })
+            .then((response) => response.json())
+            .then((json) => console.log(json));
+        };
+        function GET(){
+            let parems = document.getElementById("roll_no1").value;
+            let params={
+                "roll_no":parems
+            }
+            let query = Object.keys(params)
+                    .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
+                    .join('&');
+            let url = 'https://tpcconfessions.onrender.com/api/getConfession?' + query;
+            
+            fetch(url)
+            .then(data => data.json())
+            .then((data) => {
+                console.log(data)
+            });
+        };
+    </script>
+      
+    
+        <div class="mb-3">
+          <label class="form-label">POST</label>
+          <input type="text" id="roll_no" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+          <label  >COntent</label>
+          <input type="text"  id="content">
+        </div>
+        <button type="submit" class="btn btn-primary"onClick="POST();" >Submit</button>
+    
+    
+      <div class="mb-3">
+        <label>GET</label>
+        <input type="text"id="roll_no1" >
+      </div>
+      <button type="submit" class="btn btn-primary" onClick=GET();>Submit</button>
+
+      
+</body>
+</html>
