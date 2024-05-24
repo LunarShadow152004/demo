@@ -9,5 +9,5 @@ fetch(url)
 .then((data) => {
     console.log('DATA', data)
 });
-}
+
 
