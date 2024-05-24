@@ -7,7 +7,7 @@ let query = Object.keys(params)
 fetch(url)
 .then(data => data.json())
 .then((data) => {
-    alert('DATA', data)
+    console.log('DATA', data)
 });
 }
 
