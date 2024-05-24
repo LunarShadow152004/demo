@@ -1,15 +1,8 @@
-function getValue(){
-    var parems;
-    // Selecting the input element and get its value 
-    parems = document.getElementById("roll_no1").value;
-
-
-  
+let parems = "25bec069"
 let query = Object.keys(params)
                .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k]))
                .join('&');
-  
-let url = 'https://tpcconfessions.onrender.com/api/getConfession?' + query;
+  let url = 'https://tpcconfessions.onrender.com/api/getConfession?' + query;
   
 fetch(url)
 .then(data => data.json())
